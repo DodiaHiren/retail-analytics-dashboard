@@ -79,22 +79,22 @@ kpi_avg_order = kpi_revenue / kpi_orders if kpi_orders > 0 else 0
 
 with col1:
     st.markdown('<div class="metric-card">', unsafe_allow_html=True)
-    st.metric("💰 Total Revenue", f"${kpi_revenue:,.0f}", delta="12%")
+    st.metric("Total Revenue", f"${kpi_revenue:,.0f}", delta="12%")
     st.markdown('</div>', unsafe_allow_html=True)
 
 with col2:
     st.markdown('<div class="metric-card">', unsafe_allow_html=True)
-    st.metric("📦 Total Orders", f"{kpi_orders:,}", delta="8%")
+    st.metric("Total Orders", f"{kpi_orders:,}", delta="8%")
     st.markdown('</div>', unsafe_allow_html=True)
 
 with col3:
     st.markdown('<div class="metric-card">', unsafe_allow_html=True)
-    st.metric("👥 Unique Customers", f"{kpi_customers:,}", delta="5%")
+    st.metric("Unique Customers", f"{kpi_customers:,}", delta="5%")
     st.markdown('</div>', unsafe_allow_html=True)
 
 with col4:
     st.markdown('<div class="metric-card">', unsafe_allow_html=True)
-    st.metric("💵 Avg Order Value", f"${kpi_avg_order:.0f}", delta="4%")
+    st.metric("Avg Order Value", f"${kpi_avg_order:.0f}", delta="4%")
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Charts Row
@@ -131,3 +131,4 @@ col1, col2, col3 = st.columns(3)
 col1.metric("🎯 Top Category Revenue", f"{filtered_df.groupby('Category')['Revenue'].sum().max():.0f}")
 col2.metric("🏆 Top Region", filtered_df.groupby('Region')['Revenue'].sum().idxmax())
 col3.metric("📱 Busiest Day", filtered_df.groupby(filtered_df['Date'].dt.date)['Revenue'].sum().idxmax().strftime('%Y-%m-%d'))
+
